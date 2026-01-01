@@ -48,7 +48,7 @@ mcpServers:
   #   args:
   #     - -y
   #     - "@microsoft/markitdown-mcp"
-  # Serena: AI 编码增强 (如果你使用 Claude Desktop 或 Cursor 等第三方客户端，建议开启)
+  # Serena: AI 编码增强
   # serena:
   #   command: npx
   #   args:
