@@ -33,8 +33,9 @@ mcpServers:
   # chrome-devtools:
   #   command: npx
   #   args:
-  #     - -y
-  #     - "@modelcontextprotocol/server-chrome-devtools"
+  #     - "chrome-devtools-mcp@latest"
+  #     - "--browser-url=http://127.0.0.1:9222"
+  #     - "-y"
   # Serena: AI 编码增强 (如果你使用 Claude Desktop 或 Cursor 等第三方客户端，建议开启)
   # serena:
   #   command: npx
