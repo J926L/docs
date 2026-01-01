@@ -9,7 +9,7 @@
 
 ## 自动化同步 (Automation)
 
-维护 `mcp_config.yaml` 源代码，通过以下命令自动生成各 IDE 通用的 JSON 格式：
+维护 `mcp_config.yaml` 源代码，通过以下命令自动同步至 Gemini CLI 配置：
 
 ```bash
 # 在 /home/j/docs/mcp 目录下执行
@@ -18,7 +18,9 @@ task sync
 
 该任务会自动：
 1. 将 `mcp_config.yaml` 转换为 `mcp_config.json`。
-2. (若存在) 自动同步至 Claude Desktop 配置目录。
+2. 自动合并配置到 `~/.gemini/settings.json` (Gemini CLI)。
+3. (若存在) 自动同步至 Claude Desktop 配置目录。
+
 
 ## 初始化新项目
 
@@ -42,20 +44,8 @@ cp /home/j/docs/mcp/mcp_config.yaml ./mcp_config.yaml
 
 此操作可直接加载以下预置工具，无需重复配置：
 
-- **Sequential Thinking**: 深度推理引擎 (fnm)
-- **GitHub**: 代码仓库读写 (fnm)
-- **Top 5 Search Tools**: 联网搜索 (uvx/fnm)
-- **Postgres**: 本地数据库连接 (fnm)
-
-## 补充说明
-
-- **Tavily 独立脚本**: 若需要在项目中直接调用 SDK（不通过 MCP），可使用以下代码：
-  ```bash
-  uv add tavily-python
-  ```
-  ```python
-  from tavily import TavilyClient
-  tavily_client = TavilyClient(api_key="tvly-YOUR_API_KEY")
-  response = tavily_client.search("Who is Leo Messi?")
-  print(response)
-  ```
+- **Sequential Thinking**: 深度推理引擎 (通过 Context7)
+- **GitHub**: 代码仓库读写
+- **Top 5 Search Tools**: 联网搜索 (Tavily)
+- **Postgres**: 本地数据库连接
+- **Redis**: 缓存与状态管理

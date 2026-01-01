@@ -4,13 +4,32 @@ dotenv: ['.env']
 
 tasks:
   sync:
-    desc: Interpolate env vars into template and convert to JSON
+    desc: Interpolate env vars into template and sync to Gemini CLI / Claude
     cmds:
-      # envsubst 会替换 ${VAR}，然后 yq 转换为 JSON
+      # 1. 生成模板 (YAML -> JSON)
       - envsubst < mcp_config.yaml | yq . > mcp_config.json
-      - echo "✅ Sync complete (Template + Env -> JSON)"
+      - echo "✅ mcp_config.json generated"
+      
+      # 2. 同步至 Gemini CLI (优先)
+      - |
+        SETTINGS_FILE="$HOME/.gemini/settings.json"
+        if [ -f "$SETTINGS_FILE" ]; then
+          # 使用 jq 深度合并 mcpServers 字段到 settings.json
+          jq -s '.[0] * .[1]' "$SETTINGS_FILE" mcp_config.json > "${SETTINGS_FILE}.tmp" && mv "${SETTINGS_FILE}.tmp" "$SETTINGS_FILE"
+          echo "🚀 Synced to Gemini CLI (~/.gemini/settings.json)"
+        else
+          echo "⚠️ Gemini CLI settings.json not found, skipping sync."
+        fi
+
+      # 3. 同步至 Claude Desktop (可选)
       - |
         if [ -d "$HOME/.config/Claude" ]; then
           cp mcp_config.json "$HOME/.config/Claude/config.json"
           echo "🚀 Synced to Claude Desktop"
         fi
+
+  chat:
+    desc: Start Gemini CLI chat with MCP enabled
+    cmds:
+      - gemini
+
