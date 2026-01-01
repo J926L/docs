@@ -12,7 +12,7 @@
 # 1. Stack
 - **Logic**: **Right Tool > P-Priority** | 工具安装: **No Limits**.
 - 🥇 **P1: Rust 2024**: `sccache`+`mold` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
-- 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1。
+- 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1 | 前端继承 P3。
 - 🥈 **P3: TS**: <100行/API | `Zod` 校验 | `strict` | **Ban** `any`。
 - 🥉 **P4: Go**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
 - 📉 **P5: Py 3.12**: `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
