@@ -1,46 +1,34 @@
 mcpServers:
-  # Sequential Thinking:
-  #   command: npx
-  #   args:
-  #     - -y
-  #     - @modelcontextprotocol/server-sequential-thinking
   Context7:
     command: npx
     args:
       - -y
-      - @upstash/context7-mcp@latest
+      - "@upstash/context7-mcp@latest"
   Tavily Search:
     command: uvx
     args:
       - mcp-server-tavily 
     env:
       TAVILY_API_KEY: <YOUR_TAVILY_KEY_HERE>
-  # Brave Search:
-  #   command: npx
-  #   args:
-  #     - -y
-  #     - @modelcontextprotocol/server-brave-search
-  #   env:
-  #     BRAVE_API_KEY: <YOUR_API_KEY_HERE>
   github:
     command: npx
     args:
       - -y
-      - @modelcontextprotocol/server-github
+      - "@modelcontextprotocol/server-github"
     env:
       GITHUB_PERSONAL_ACCESS_TOKEN: <YOUR_GITHUB_TOKEN_HERE>
   postgres:
     command: npx
     args:
       - -y
-      - @modelcontextprotocol/server-postgres
-      - postgres://postgres:password@127.0.0.1:54322/postgres
+      - "@modelcontextprotocol/server-postgres"
+      - "postgres://postgres:password@127.0.0.1:54322/postgres"
   redis:
     command: npx
     args:
       - -y
-      - @modelcontextprotocol/server-redis
-      - redis://:password@127.0.0.1:6379
+      - "@modelcontextprotocol/server-redis"
+      - "redis://:password@127.0.0.1:6379"
   # Chrome DevTools: 调试前端/Tauri (需先启动 Chrome --remote-debugging-port=9222)
   # chrome-devtools:
   #   command: npx

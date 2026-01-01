@@ -1,0 +1,13 @@
+version: '3'
+
+tasks:
+  sync:
+    desc: Convert YAML config to JSON for IDE compatibility
+    cmds:
+      - yq . mcp_config.yaml > mcp_config.json
+      - echo "✅ Conversion complete -> mcp_config.json"
+      - |
+        if [ -d "$HOME/.config/Claude" ]; then
+          cp mcp_config.json "$HOME/.config/Claude/config.json"
+          echo "🚀 Synced to Claude Desktop"
+        fi

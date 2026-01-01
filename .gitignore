@@ -8,6 +8,7 @@ Thumbs.db
 
 # MCP Configuration
 mcp/*.yaml
+mcp/*.json
 !mcp/*.template.yaml
 
 # Node/Python (Optional but good practice)
