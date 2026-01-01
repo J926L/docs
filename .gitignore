@@ -7,9 +7,10 @@ Thumbs.db
 .idea/
 
 # MCP Configuration
-mcp/*.yaml
 mcp/*.json
-!mcp/*.template.yaml
+mcp/.env
+mcp/*.yaml
+!mcp/mcp_config.yaml
 
 # Node/Python (Optional but good practice)
 node_modules/

@@ -4,8 +4,8 @@
 
 ### 配置分层
 
-- **`mcp_config.template.yaml`**: 结构模板 (Git 追踪)，包含工具集定义。
-- **`mcp_config.yaml`**: 私有配置 (Git 忽略)，包含真实 API Key。
+- **`mcp_config.yaml`**: 结构模板 (Git 追踪)，包含工具集定义。
+- **`.env`**: 私有密钥 (Git 忽略)，包含真实 API Key。
 
 ## 自动化同步 (Automation)
 
@@ -36,7 +36,7 @@ ln -s /home/j/docs/mcp/mcp_config.json ./mcp.json
 若项目需要隔离环境或独立 Key：
 
 ```bash
-cp /home/j/docs/mcp/mcp_config.template.yaml ./mcp_config.yaml
+cp /home/j/docs/mcp/mcp_config.yaml ./mcp_config.yaml
 # 编辑填入项目专用 Key
 ```
 

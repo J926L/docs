@@ -1,11 +1,14 @@
 version: '3'
 
+dotenv: ['.env']
+
 tasks:
   sync:
-    desc: Convert YAML config to JSON for IDE compatibility
+    desc: Interpolate env vars into template and convert to JSON
     cmds:
-      - yq . mcp_config.yaml > mcp_config.json
-      - echo "✅ Conversion complete -> mcp_config.json"
+      # envsubst 会替换 ${VAR}，然后 yq 转换为 JSON
+      - envsubst < mcp_config.yaml | yq . > mcp_config.json
+      - echo "✅ Sync complete (Template + Env -> JSON)"
       - |
         if [ -d "$HOME/.config/Claude" ]; then
           cp mcp_config.json "$HOME/.config/Claude/config.json"
