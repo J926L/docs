@@ -1,4 +1,10 @@
 mcpServers:
+  # Sequential Thinking: 深度推理/链式思考增强
+  # sequential-thinking:
+  #   command: npx
+  #   args:
+  #     - -y
+  #     - "@modelcontextprotocol/server-sequential-thinking"
   Context7:
     command: npx
     args:
