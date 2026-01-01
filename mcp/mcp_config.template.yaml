@@ -41,3 +41,15 @@ mcpServers:
       - -y
       - @modelcontextprotocol/server-redis
       - redis://:password@127.0.0.1:6379
+  # Chrome DevTools: 调试前端/Tauri (需先启动 Chrome --remote-debugging-port=9222)
+  # chrome-devtools:
+  #   command: npx
+  #   args:
+  #     - -y
+  #     - "@modelcontextprotocol/server-chrome-devtools"
+  # Serena: AI 编码增强 (如果你使用 Claude Desktop 或 Cursor 等第三方客户端，建议开启)
+  # serena:
+  #   command: npx
+  #   args:
+  #     - -y
+  #     - @oraios/serena
