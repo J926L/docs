@@ -46,4 +46,5 @@ sync
 ### 📍 资源索引 (Index)
 
 - **端口**: `/home/j/dockge/PORTS.md` (查重必看)。
-- **代码**: `/home/j/projects/<name>/src/` (文件名强制 `snake_case`)。
+- **代码**: `/home/j/projects/{project_name}/` | **Idiomatic** | `snake_case`。
+- **结构**: 遵循该语言社区主流标准，保持根目录整洁。

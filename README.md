@@ -22,7 +22,8 @@
 
 # 2. Constraints & Ops
 
-- **Path**: **Only** `/home/j/projects/` | **Must** 绝对路径 | `snake_case`。
+- **Path**: `/home/j/projects/{project_name}/` | **Must** 绝对路径 | `snake_case`。
+- **Layout**: **Idiomatic** (遵循语言主流规范) | **Clean Root** (限制根目录杂讯)。
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
 - **Data**: 临时 **Must** SQLite | 持久化 **Must** Supabase (DB/Auth) | ORM/Migrate **Must** Prisma。
