@@ -10,7 +10,10 @@
 - **Safety**: **Safety > Speed**. 宁缺毋滥。
 - **Glue**: **胶水编程**。能抄不写，能连不造。**Must** 标源。
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
-- **Cognitive**: **Memory**(Supermemory) + **Docs**(Context7) + **Search**(Tavily) | **SOP**: 原生扫盲，Tavily 深度排坑（省额度）。
+- **Cognitive**: **Memory**(Supermemory) + **Docs**(Context7) + **Search**(Tavily)
+- **SOP**: 
+  - **Memory**: 执行 **Core-Memory** 架构；**Global** 存通用准则，**Space** 以 `{project_name}` 隔离。
+  - **Search**: 原生扫盲，Tavily 深度排坑。
 
 # 1. Stack
 
