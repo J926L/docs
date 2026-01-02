@@ -27,8 +27,8 @@
 - **Layout**: **Idiomatic** (遵循语言主流规范) | **Clean Root** (限制根目录杂讯)。
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
-- **Data**: 临时 **Must** SQLite | 持久化 **Must** Supabase (PostgreSQL 17.6.1 / Auth) | ORM/Migrate **Must** Prisma 7.x。
-- **Infra**: caddy:2 | redpanda:v25 | uptime-kuma:2 | redis:7-alpine | Docker / Supabase CLI: 2.67.1。
+- **Data**: 临时 **Must** SQLite | 持久化 **Must** Supabase (PostgreSQL 17.6.1 / Auth) | **禁止自动更新** | ORM/Migrate **Must** Prisma 7.x。
+- **Infra**: caddy:2-alpine | redpanda:v25 | uptime-kuma:2 | redis:7-alpine | `task infra:sync` | Docker / Supabase CLI: 2.67.1。
 - **Task**: **Must** `taskfile` | **Must** 原子化 `db:sync` | REST Client (**Ban** Postman)。
 
 # 3. Automation

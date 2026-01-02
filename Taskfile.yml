@@ -6,3 +6,9 @@ tasks:
     cmds:
       - uv run /home/j/docs/scripts/configure_docker.py
     silent: true
+
+  infra:sync:
+    desc: "同步基础设施容器状态 (注: 除 DB 外，其余由 Watchtower 后台维护)"
+    cmds:
+      - for dir in caddy redis redpanda uptime-kuma watchtower; do cd /home/j/dockge/stacks/$dir && docker compose pull && docker compose up -d; done
+    silent: true
