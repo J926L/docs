@@ -6,6 +6,7 @@
 
 # 0. Protocol
 
+- **Ops**: `/home/j/docs/` | **Must** check `scripts/` & `workflows/`。
 - **Safety**: **Safety > Speed**. 宁缺毋滥。
 - **Glue**: **胶水编程**。能抄不写，能连不造。**Must** 标源。
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
