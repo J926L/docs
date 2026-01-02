@@ -10,13 +10,6 @@ mcpServers:
     args:
       - -y
       - "@upstash/context7-mcp@latest"
-  supermemory:
-    command: npx
-    args:
-      - -y
-      - "@supermemory/mcp-server"
-    env:
-      SUPERMEMORY_API_KEY: "${SUPERMEMORY_API_KEY}"
   Tavily Search:
     command: uvx
     args:

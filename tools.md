@@ -29,7 +29,7 @@ sync
 
 - **调试**: `ic()` (Icecream 打印) / `rich` (终端美化)。
 - **AI 增强**:
-  - **Memory**: `supermemory` (项目硬知识百科 / 长期记忆)。
+  - **Memory**: `supermemory` (暂缓 / 待修复)。
   - **Context**: `Context7` (实时文档 / 深度理解)。
   - **Search**: `Tavily Search` (技术深度挖掘 / 实时联网)。
 - **接口**: `.http` (VS Code REST Client)；**严禁** Postman。

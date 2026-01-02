@@ -11,9 +11,8 @@
 - **Glue**: **胶水编程**。能抄不写，能连不造。**Must** 标源。
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
 - **Cognitive**: **Memory**(Supermemory) + **Docs**(Context7) + **Search**(Tavily)
-- **SOP**: 
-  - **Memory**: 执行 **Core-Memory** 架构；**Global** 存通用准则，**Space** 以 `{project_name}` 隔离。
-  - **Search**: 原生扫盲，Tavily 深度排坑。
+- **Cognitive**: **Docs**(Context7) + **Search**(Tavily) | **Memory**: 本地 Markdown (`core_memory/`)。
+- **SOP**: 原生扫盲，Tavily 深度排坑；核心记忆走 **GitOps** 文档 (AI 提议 -> User 确认)。
 
 # 1. Stack
 
