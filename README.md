@@ -17,7 +17,7 @@
 - 🥇 **P1: Rust 2024**: `clippy::pedantic` | `sccache`+`mold` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
 - 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1 | 前端继承 P3。
 - 🥈 **P3: TS**: <100行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
-- 🥉 **P4: Go**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
+- 🥉 **P4: Go 1.23**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
 - 📉 **P5: Py 3.12**: `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
 - 🚫 **Restricted**: Big Data (Java/SDKMAN) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5行 -> Py/Go)。
 
@@ -27,8 +27,8 @@
 - **Layout**: **Idiomatic** (遵循语言主流规范) | **Clean Root** (限制根目录杂讯)。
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
-- **Data**: 临时 **Must** SQLite | 持久化 **Must** Supabase (DB/Auth) | ORM/Migrate **Must** Prisma。
-- **Infra**: caddy:2 (**Ban** nginx) | redpanda:v25 (**Ban** Kafka) | uptime-kuma:2 (**Ban** prometheus) | redis:7 | Docker / Supabase。
+- **Data**: 临时 **Must** SQLite | 持久化 **Must** Supabase (PostgreSQL 17.6.1 / Auth) | ORM/Migrate **Must** Prisma 7.x。
+- **Infra**: caddy:2 | redpanda:v25 | uptime-kuma:2 | redis:7-alpine | Docker / Supabase CLI: 2.67.1。
 - **Task**: **Must** `taskfile` | **Must** 原子化 `db:sync` | REST Client (**Ban** Postman)。
 
 # 3. Automation
