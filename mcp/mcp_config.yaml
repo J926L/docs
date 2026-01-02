@@ -14,7 +14,7 @@ mcpServers:
     command: npx
     args:
       - -y
-      - "@supermemoryai/mcp-server"
+      - "@supermemory/mcp-server"
     env:
       SUPERMEMORY_API_KEY: "${SUPERMEMORY_API_KEY}"
   Tavily Search:
