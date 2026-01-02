@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+  docker:fix:
+    desc: "优化 Docker 中国区镜像并验证连通性"
+    cmds:
+      - uv run /home/j/docs/scripts/configure_docker.py
+    silent: true
