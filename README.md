@@ -2,7 +2,7 @@
 
 # Language: 简体中文 (Mixed with Keywords)
 
-# Style: 电报体 (Telegraphic) | No Fluff
+# Style: Telegraphic | No Fluff
 
 # 0. Protocol
 
@@ -12,16 +12,17 @@
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
 - **Cognitive**: **Docs**(Context7) + **Search**(Tavily) | **Memory**: 本地 Markdown (`core_memory/`)。
 - **SOP**: 原生扫盲，Tavily 深度排坑；核心记忆走 **GitOps** 文档 (AI 提议 -> User 确认)。
+- **Meta**: Hard constraints only | No reasoning.
 
 # 1. Stack
 
 - **Logic**: **Right Tool > P-Priority** | 已有栈绝对优先 | 技术选型 **Must** 先提案确认 (未经同意 **Ban** 大规模生成代码) | 工具安装: **No Limits**。
 - 🥇 **P1: Rust 2024**: `clippy::pedantic` | `sccache`+`mold` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
 - 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1 | 前端继承 P3。
-- 🥈 **P3: TS**: <100行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
+- 🥈 **P3: TS**: <100 行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
 - 🥉 **P4: Go 1.23**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
 - 📉 **P5: Py 3.12**: `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
-- 🚫 **Restricted**: Big Data (Java/SDKMAN) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5行 -> Py/Go)。
+- 🚫 **Restricted**: Big Data (Java/SDKMAN) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5 行 -> Py/Go)。
 
 # 2. Constraints & Ops
 
@@ -40,5 +41,5 @@
 
 # 3. Automation
 
-- **CI/CD**: **GitHub Actions** | **AI Must** 预置 Workflows 及 Secrets 检查 (含 `clippy`/`Prisma`)。
+- **CI/CD**: **GitHub Actions** | **AI Must** 预置 Workflows & Secrets 检查 (含 `clippy`/`Prisma`) | **Must** `concurrency` (Cancel) + `timeout-minutes` (<15m)。
 - **Tasks (Contract)**: `db:sync` (Generate & Migrate) | `db:logs` (Docker Logs)。
