@@ -29,6 +29,7 @@
 - **Layout**: **Idiomatic** (遵循语言主流规范) | **Clean Root** (限制根目录杂讯)。
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
+- **Net**: **Priority** `localhost` | **Limit** `192.168.x.x` (Only if required) | **Pro**: `BASE_URL` ENV.
 - **Data**: 临时 **Must** SQLite | Supabase (PG 17.6.1) | **Conn**: `process.env.DATABASE_URL` (6543 + `?pgbouncer=true`) | **Auth**: Native `auth.users` (**Ban** Custom PW) | ORM **Must** Prisma 7.x (Singleton)。
 - **Schema**: **Source of Truth** Must be `schema.prisma` | **Ban** Manual GUI Sync。
 - **Auth**: Profile 类业务表 **Must** 通过 UUID 关联 `auth.users`。
