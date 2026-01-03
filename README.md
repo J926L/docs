@@ -11,7 +11,8 @@
 - **Glue**: **胶水编程**。能抄不写，能连不造。**Must** 标源。
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
 - **Cognitive**: **Docs**(Context7) + **Search**(Tavily) | **Memory**: 本地 Markdown (`core_memory/`)。
-- **SOP**: 原生扫盲，Tavily 深度排坑；核心记忆走 **GitOps** 文档 (AI 提议 -> User 确认)。
+- **SOP**: 原生扫盲，Tavily 深度排坑；核心记忆走 **GitOps** 文档 (AI 提议 -> User 确认)；问题排查 **Must** 查 Docker Logs (本地无云端 UI)。
+- **Edge**: 本地 Edge Functions 仅为模拟环境，上线前 **Must** 校验行为差异。
 
 # 1. Stack
 
@@ -29,7 +30,7 @@
 - **Layout**: **Idiomatic** (遵循语言主流规范) | **Clean Root** (限制根目录杂讯)。
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
-- **Data**: 临时 **Must** SQLite | Supabase (PG 17.6.1) | **Conn**: `process.env.DATABASE_URL` (Tx Mode 6543) | **Auth**: Native `auth.users` (**Ban** Custom PW) | ORM **Must** Prisma 7.x。
+- **Data**: 临时 **Must** SQLite | Supabase (PG 17.6.1) | **Conn**: `process.env.DATABASE_URL` (Tx Mode 6543 + `?pgbouncer=true`) | **Auth**: Native `auth.users` (**Ban** Custom PW) | ORM **Must** Prisma 7.x (**Must** Singleton in Dev) | **Schema**: **Must** Prisma Migrate (**Ban** Manual GUI Sync)。
 - **Infra**: caddy:2-alpine | redpanda:v25 | uptime-kuma:2 | redis:7-alpine | `task infra:sync` | Docker / Supabase CLI: 2.70.5。
 - **Task**: **Must** `taskfile` | **Must** 原子化 `db:sync` | REST Client (**Ban** Postman)。
 
