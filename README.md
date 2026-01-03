@@ -15,7 +15,7 @@
 
 # 1. Stack
 
-- **Logic**: **Right Tool > P-Priority** | 工具安装: **No Limits**.
+- **Logic**: **Right Tool > P-Priority** | 已有栈绝对优先 | 技术选型 **Must** 先提案确认 (未经同意 **Ban** 大规模生成代码) | 工具安装: **No Limits**。
 - 🥇 **P1: Rust 2024**: `clippy::pedantic` | `sccache`+`mold` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
 - 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1 | 前端继承 P3。
 - 🥈 **P3: TS**: <100行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
