@@ -20,7 +20,7 @@
 - 🥇 **P1: Rust 2024**: `clippy::pedantic` | `sccache`+`mold` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
 - 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1 | 前端继承 P3。
 - 🥈 **P3: TS**: <100 行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
-- 🥉 **P4: Go 1.23**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
+- 🥉 **P4: Go**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
 - 📉 **P5: Py 3.12**: `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
 - 🚫 **Restricted**: Big Data (Java/SDKMAN) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5 行 -> Py/Go)。
 
