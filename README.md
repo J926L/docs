@@ -12,7 +12,8 @@
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
 - **Cognitive**: **Docs**(Context7) + **Search**(Tavily) | **Memory**: 本地 Markdown (`core_memory/`)。
 - **SOP**: 原生扫盲，Tavily 深度排坑；核心记忆走 **GitOps** 文档 (AI 提议 -> User 确认)。
-- **Meta**: Hard constraints only | No reasoning.
+- **Test**: **分模块测试** | 完成单一功能后 **Must** 立即运行校验，严禁全量代码生成后再调试。
+- **Meta**: 本文档 **Must** 仅限硬约束 | **Ban** 理由描述。
 
 # 1. Stack
 
