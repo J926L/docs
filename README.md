@@ -44,3 +44,7 @@
 
 - **CI/CD**: **GitHub Actions** | **AI Must** 预置 Workflows & Secrets 检查 (含 `clippy`/`Prisma`) | **Must** `concurrency` (Cancel) + `timeout-minutes` (<15m)。
 - **Tasks (Contract)**: `db:sync` (Generate & Migrate) | `db:logs` (Docker Logs)。
+
+# 4. Android (WSL -> Windows)
+- **Task**: `task android:run` (`build` -> `cp to Win` -> `adb install`)
+- **Logic**: Win PS `adb` | **Ban** Linux `adb` install (Use `adb.exe`).
