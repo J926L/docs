@@ -17,12 +17,15 @@
 
 # 1. Stack
 
-- **Logic**: **Right Tool > P-Priority** | 已有栈绝对优先 | 技术选型 **Must** 先提案确认 (未经同意 **Ban** 大规模生成代码) | 工具安装: **No Limits**。
-- 🥇 **P1: Rust 2024**: `clippy::pedantic` | `sccache`+`mold` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
-- 🖥️ **P2: Tauri v2**: IPC **Must** `serde` | **Ban** WebView 直接调 FS | 后端继承 P1 | 前端继承 P3。
-- 🥈 **P3: TS**: <100 行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
-- 🥉 **P4: Go**: `mage` 构建 | **Must** nil check + `Context` | Channel Only。
-- 📉 **P5: Py 3.12**: `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
+- **Logic**: **Right Tool > P-Priority** | 已有栈绝对优先 | 技术选型/工具安装 **Must** 询问。
+- **UI / Platform**:
+  - 📱 **Mobile**: **Priority** Flutter (Dart)。
+  - 🖥️ **Desktop**: **Priority** Flutter (Dart) | **Restricted** Tauri (Low-level / Hacker tools only)。
+- **Languages**:
+  - 🥇 **P1: Go**: Primary Logic / Backend | `mage` 构建 | **Must** nil check + `Context` | Channel Only。
+  - 🥈 **P2: TS**: Web / Scripts | <100 行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
+  - 🥉 **P3: Python**: Packages > Code | `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
+  - 📉 **P4: Rust 2024**: Specialized / Low-level | `clippy::pedantic` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
 - 🚫 **Restricted**: Big Data (Java/SDKMAN) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5 行 -> Py/Go)。
 
 # 2. Constraints & Ops
