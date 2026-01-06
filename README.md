@@ -7,10 +7,12 @@
 # 0. Protocol
 
 - **Ops**: `/home/j/docs/` | **Must** check `scripts/` & `workflows/`。
+- **GitOps**: **Truth in Git**. Infra / Config / Memory **Must** be declarative & versioned.
 - **Safety**: **Safety > Speed**. 宁缺毋滥。
 - **Glue**: **胶水编程**。能抄不写，能连不造。**Must** 标源。
 - **Refactor**: 失败 > 3 次 -> **Must** 重构数据结构。
-- **Cognitive**: **Docs**(Context7) + **Search**(Tavily) | **Memory**: 本地 Markdown (`core_memory/`)。
+- **Cognitive**: **Docs**(Context7) + **Search**(Tavily).
+- **Memory**: `core_memory/` (Markdown | **State Machine**). **Ban** Logs/Diaries. One component, one file. **Must** reflect current state.
 - **SOP**: 原生扫盲，Tavily 深度排坑；核心记忆走 **GitOps** 文档 (AI 提议 -> User 确认)。
 - **Test**: **分模块测试** | 完成单一功能后 **Must** 立即运行校验，严禁全量代码生成后再调试。
 - **Meta**: 本文档 **Must** 仅限硬约束 | **Ban** 理由描述。
@@ -35,7 +37,8 @@
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
 - **Net**: **Priority** `localhost` | **Limit** `192.168.x.x` (Only if required) | **Pro**: `BASE_URL` ENV.
-- **Data**: 临时 **Must** SQLite | Supabase (PG 17.6.1) | **Conn**: `process.env.DATABASE_URL` (6543 + `?pgbouncer=true`) | **Auth**: Native `auth.users` (**Ban** Custom PW) | ORM **Must** Prisma 7.x (Singleton)。
+- **Data**: 临时 **Must** SQLite | Supabase (PG 17.6.1) | **Conn**: `process.env.DATABASE_URL` (6543 + `?pgbouncer=true`) | **Auth**: Native `auth.users` (**Ban** Custom PW).
+- **ORM**: **Must** Prisma 7.x (Singleton) | **Prisma**: **Must** use project-local `npx` | **Gen**: `output` **Must** point to `src/generated/`.
 - **Schema**: **Source of Truth** Must be `schema.prisma` | **Ban** Manual GUI Sync。
 - **Auth**: Profile 类业务表 **Must** 通过 UUID 关联 `auth.users`。
 - **Diagnostics**: 报错 **Must** 查 `docker logs` (无云端 UI)。
@@ -50,4 +53,4 @@
 
 # 4. Android (WSL -> Windows)
 - **Task**: `task android:run` (`build` -> `cp to Win` -> `adb install`)
-- **Logic**: PS `adb` | **Ban** Linux `adb` install (Use `adb.exe`).
+- **Logic**: `adb.exe` | **Ban** Linux native `adb`.
