@@ -47,4 +47,4 @@
 
 # 4. Android (WSL -> Windows)
 - **Task**: `task android:run` (`build` -> `cp to Win` -> `adb install`)
-- **Logic**: Win PS `adb` | **Ban** Linux `adb` install (Use `adb.exe`).
+- **Logic**: PS `adb` | **Ban** Linux `adb` install (Use `adb.exe`).
