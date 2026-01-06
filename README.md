@@ -22,7 +22,7 @@
 - **Logic**: **Right Tool > P-Priority** | 已有栈绝对优先 | 技术选型/工具安装 **Must** 询问。
 - **UI / Platform**:
   - 📱 **Mobile**: **Priority** Flutter (Dart)。
-  - 🖥️ **Desktop**: **Priority** Flutter (Dart) | **Restricted** Tauri (Low-level / Hacker tools only)。
+  - 🖥️ **Desktop**: **Priority** Flutter (Dart) | **Restricted** Tauri 2 (Low-level / Hacker tools only)。
 - **Languages**:
   - 🥇 **P1: Go**: Primary Logic / Backend | `mage` 构建 | **Must** nil check + `Context` | Channel Only。
   - 🥈 **P2: TS**: Web / Scripts | <100 行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
