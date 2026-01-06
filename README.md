@@ -22,17 +22,18 @@
 - **Logic**: **Right Tool > P-Priority** | 已有栈绝对优先 | 技术选型/工具安装 **Must** 询问。
 - **UI / Platform**:
   - 📱 **Mobile**: **Priority** Flutter (Dart)。
+    - **Android**: **Restricted** Kotlin (Gradle Only | 只在编译 Android 项目时)。
   - 🖥️ **Desktop**: **Priority** Flutter (Dart) | **Restricted** Tauri 2 (Low-level / Hacker tools only)。
 - **Languages**:
   - 🥇 **P1: Go**: Primary Logic / Backend | `mage` 构建 | **Must** nil check + `Context` | Channel Only。
   - 🥈 **P2: TS**: Web / Scripts | <100 行/API | `Zod` + `Prisma 7` (WASM) | `strict` | **Ban** `any`。
   - 🥉 **P3: Python**: Packages > Code | `uv` | 模块化入 `src/` | GPU 调用 **Must** 显存限额。
   - 📉 **P4: Rust 2024**: Specialized / Low-level | `clippy::pedantic` | **Zero** Unsafe/Panic | **Ban** `.clone()` | `src/` + `tests/`。
-- 🚫 **Restricted**: Big Data (Java/SDKMAN) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5 行 -> Py/Go)。
+- 🚫 **Restricted**: Big Data (Java/SDKMAN) | Kotlin (System CLI) | C/C++ (Modern/RAII | FFI/Lib Only) | Bash (>5 行 -> Py/Go)。
 
 # 2. Constraints & Ops
 
-- **Path**: `/home/j/projects/{project_name}/` | **Must** 绝对路径 | `snake_case`。
+- **Path**: `/home/j/projects/{project_name}/` | **Must** 绝对路径 | `snake_case`/`lowercase` (Clone keep original)。
 - **Layout**: **Idiomatic** (遵循语言主流规范) | **Clean Root** (限制根目录杂讯)。
 - **Env**: **Docker** 隔离 | **Secrets** **Must** `.env` (Git Ignore) | **Ban** 明文密钥 | `check-env` | `spec-sync`。
 - **VRAM/Port**: 6GB/CUDA 13.x | **Must** 查 `/home/j/dockge/PORTS.md`。
