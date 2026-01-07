@@ -1,54 +1,31 @@
-# “开发环境一键对齐工具”
+# 🧰 军火库 (Tools)
 
-```bash
-source ~/.bashrc
-sync
-```
+### 📦 环境/版本 (Core)
+- **Node**: `fnm`
+- **Python**: `uv` | SQLite
+- **Rust**: `rustup`
+- **JVM**: `sdkman` | **Ban** system install
 
-# 🧰 军火库清单 (Tool Inventory)
+### 🛠️ 现代替代 (Modern CLI)
+- **文件**: `eza` (ls) | `bat` (cat) | `markitdown` (MD conv)
+- **搜索/跳转**: `rg` (grep) | `z` (cd)
+- **任务**: `task` (run) | `mage` (build)
 
-### 📦 环境与版本 (Host CLI)
+### 🌐 网络 (Net)
+- **DNS**: `doggo` (DoH)
+- **Trace**: `trippy` (`trip`)
 
-- **Node**: `fnm` (多版本管理)。
-- **Python**: `uv` (极速包管/隔离) | SQLite (内置)。
-- **Rust**: `rustup` (全套工具链)。
-- **Java**: `sdk` (SDKMAN! / Maven / Java 21)。
+### 🔍 调试/AI (Dev)
+- **调试**: `ic()` (Icecream) | `rich` (UI)
+- **AI**: `Context7` (Doc) | `Tavily` (Search)
+- **接口**: `.http` (REST Client). **Ban** Postman.
 
-### 🛠️ 现代替代 (Modern Alternatives)
+### 🐳 容器 (Docker)
+- **管理**: **Dockge** (`:5001`)
+- **网关**: **Caddy v2**
+- **监控**: **Uptime Kuma**
+- **数据**: Supabase | Redis (alpine) | Redpanda (Kafka comp)
 
-- **文件**: `eza` (列出 / ls) / `bat` (查看 / cat) / `markitdown` (多格式转 MD，支持 MCP)。
-- **搜索/跳转**: `rg` (内容查找 / grep) / `z` (智能跳转目录 / cd)。
-- **任务**: `task` (任务运行 / make) / `mage` (复杂构建)。
-
-### 🌐 网络诊断 (Network)
-
-- **DNS**: `doggo` (替代 `nslookup`) | 原生 DoH 支持。
-- **Trace**: `trippy` (替代 `traceroute`) | 实时 TUI 监控 | 命令: `trip`。
-
-### 🔍 调试与接口 (Dev & Debug)
-
-- **调试**: `ic()` (Icecream 打印) / `rich` (终端美化)。
-- **AI 增强**:
-  - **Memory**: `supermemory` (暂缓 / 待修复)。
-  - **Context**: `Context7` (实时文档 / 深度理解)。
-  - **Search**: `Tavily Search` (技术深度挖掘 / 实时联网)。
-- **接口**: `.http` (VS Code REST Client)；**严禁** Postman。
-
-### 🐳 容器设施 (Docker Stack)
-
-- **管理**: **Dockge** (`http://localhost:5001`)。
-
-  - **启动**: `./start_dockge.sh` (在 `/home/j/projects/` 下执行)
-
-- **网关**: **Caddy v2** (自动 HTTPS / 反代)。
-- **监控**: **Uptime Kuma** (`http://status.localhost`)。
-- **数据**:
-  - **Supabase**: PG 17 (`http://127.0.0.1:54323`)。
-  - **Redis**: 7-alpine (密码保护)。
-- **消息**: **Redpanda** (Dockge)；兼容、禁原生 Kafka。
-
-### 📍 资源索引 (Index)
-
-- **端口**: `/home/j/dockge/PORTS.md` (查重必看)。
-- **代码**: `/home/j/projects/{project_name}/` | **Idiomatic** | `snake_case`。
-- **结构**: 遵循该语言社区主流标准，保持根目录整洁。
+### 📍 索引 (Index)
+- **端口**: `/home/j/dockge/PORTS.md`
+- **代码**: `/home/j/projects/{p_name}/` | `snake_case` | `Idiomatic`
