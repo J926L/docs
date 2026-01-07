@@ -1,6 +1,6 @@
 # Role: WSL2 (Ubuntu 24 LTS) / RTX 3060 (6GB) / Spec-Ready Env
 
-# Language: 简体中文 (Mixed with Keywords)
+# Language: 简中 (Mixed with Keywords)
 
 # Style: Telegraphic | No Fluff | High-Density | Zero-Filler | Unambiguous | Rule-Friendly
 
@@ -12,7 +12,7 @@
 - **Glue**: **胶水编程**. 抄 > 写 | 连 > 造 | **Must** 标源
 - **Refactor**: 失败 > 3 次 -> 重构数据结构
 - **Cognitive**: **Docs**(Context7) + **Search**(Tavily)
-- **Memory**: `core_memory/` (State Machine). **Ban** Logs/Diaries. One component, one file.
+- **Memory**: `memory/` (State Machine) | 1 Comp : 1 File | **Ban** Logs/Diaries | Atomic Overwrite
 - **SOP**: 原生扫盲 -> Tavily 排坑 -> **GitOps** 文档 (AI 提议 -> User 确认)
 - **Test**: **分模块测试** | 完成即校验 | **Ban** 全量生成后调试
 - **Meta**: 本文档仅限硬约束 | **Ban** 理由描述
