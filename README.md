@@ -15,6 +15,8 @@
 - **Memory**: `memory/` (State Machine) | 1 Comp : 1 File | **Ban** Logs/Diaries | Atomic Overwrite
 - **SOP**: 原生扫盲 -> Tavily 排坑 -> **GitOps** 文档 (AI 提议 -> User 确认)
 - **Test**: **分模块测试** | 完成即校验 | **Ban** 全量生成后调试
+- **Schema**: **DDL > sqlc > Go** | **Must** Sync First | **Ban** Blind Query
+- **Errors**: `fmt.Errorf("ctx: %w", err)` | **Must** Trace | **Ban** Naked `log.Fatal`
 - **Meta**: 本文档仅限硬约束 | **Ban** 理由描述
 
 # 1. Stack
@@ -26,22 +28,24 @@
   - 🖥️ **Desktop**: **Ref** Flutter (Dart) | **Restricted** Tauri 2 (Low-level/Hacker only)
 - **JVM Stack**: `sdkman` | **Ban** system install
 - **Languages**:
-  - 🥇 **P1: Go**: Primary | `mage` | `Context` | Channel Only | Nil check
-  - 🥈 **P2: TS**: Web/Scripts | <100 行 | `Zod` + `Prisma 7` | `strict` | **Ban** `any`
+  - 🥇 **P1: Go**: Primary | **Gin** | **sqlc** | `mage` | `Context` | Channel Only | Nil check
+  - 🥈 **P2: TS**: Web/Scripts | <100 行 | `Zod` | `strict` | **Ban** `any`
   - 🥉 **P3: Python**: Packages > Code | `uv` | `src/` | GPU: 限额
   - 📉 **P4: Rust 2024**: Specialized | `clippy::pedantic` | **Zero** Unsafe/Panic | **Ban** `.clone()`
 - 🚫 **Restricted**: Big Data (Java) | C/C++ (Modern/RAII | FFI Only) | Bash (>5 行 -> Py/Go)
 
 # 2. Constraints & Ops
 
-- **Path**: `/home/j/projects/{project_name}/` | **Absolute** | `snake_case`
+- **Path**: `/home/j/projects/{project_name}/` | `snake_case`/`lowercase` (Clone keep original)
 - **Layout**: **Idiomatic** | **Clean Root**
-- **Env**: **Docker** 隔离 | **Secrets**: `.env` | **Ban** 明文 | `check-env`
-- **VRAM/Port**: 6GB/CUDA 13.x | Check `/home/j/dockge/PORTS.md`
+- **Env**: **Secrets** `.env` | **Ban** Plain | `check-env`
+- **Docker**: **Ban** Vol | **Ref** Bind (`./data` `./logs`) | AI Access
+- **VRAM**: 6GB (Shared) | **Ban** Browser HW-Accel
+- **Port**: Check `/home/j/dockge/PORTS.md`
 - **Net**: `localhost` | `BASE_URL` ENV | `192.168.x.x` restricted
 - **Data**: SQLite (Temp) | Supabase (PG 17.6.1) | **Auth**: `auth.users` (**Ban** Custom PW)
-- **ORM**: Prisma 7.x (Singleton) | Project-local `npx` | **Gen**: `src/generated/`
-- **Schema**: **Source of Truth**: `schema.prisma` | **Ban** GUI Sync
+- **SQL**: Supabase Direct (SQL Editor/Migrations) | **Ban** ORM
+- **Schema**: **Source of Truth**: Supabase / SQL | **Ban** GUI Sync
 - **Infra**: caddy/redpanda/uptime-kuma/redis (alpine) | `task infra:sync` | CLI 2.70.5
 - **Task**: `taskfile` | 原子化 `db:sync` | REST Client (**Ban** Postman)
 
@@ -52,4 +56,5 @@
 
 # 4. Android (WSL -> Windows)
 - **Task**: `task android:run` (`build` -> `cp to Win` -> `adb install`)
-- **Logic**: `adb.exe` | **Ban** Linux native `adb`
+- **Logic**: Windows `adb.exe` | **Ban** Linux native `adb`
+- **Net**: App -> WSL-IP (172.x) | **Ban** `localhost` | Check `ping`
