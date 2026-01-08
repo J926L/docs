@@ -8,14 +8,14 @@
 
 - **Ops**: `/home/j/docs/` | Check `scripts/` `workflows/`
 - **GitOps**: **Truth in Git**. Infra / Config / Memory: Declarative & Versioned
-- **Safety**: **Safety > Speed**
+- **Safety**: **Safety > Speed** | **Ban** Check-then-Act (TOCTOU)
 - **Glue**: **胶水编程**. 抄 > 写 | 连 > 造 | **Must** 标源
 - **Refactor**: 失败 > 3 次 -> 重构数据结构
 - **Cognitive**: **Docs**(Context7) + **Search**(Tavily)
 - **Memory**: `memory/` (State Machine) | 1 Comp : 1 File | **Ban** Logs/Diaries | Atomic Overwrite
 - **SOP**: 原生扫盲 -> Tavily 排坑 -> **GitOps** 文档 (AI 提议 -> User 确认)
 - **Test**: **分模块测试** | 完成即校验 | **Ban** 全量生成后调试
-- **Schema**: **DDL > sqlc > Go** | **Must** Sync First | **Ban** Blind Query
+- **Schema**: **Go Structs** (SSOT) | **Dev**: AutoMigrate | **Prod**: DDL Scripts
 - **Errors**: `fmt.Errorf("ctx: %w", err)` | **Must** Trace | **Ban** Naked `log.Fatal`
 - **Meta**: 本文档仅限硬约束 | **Ban** 理由描述
 
@@ -28,7 +28,7 @@
   - 🖥️ **Desktop**: **Ref** Flutter (Dart) | **Restricted** Tauri 2 (Low-level/Hacker only)
 - **JVM Stack**: `sdkman` | **Ban** system install
 - **Languages**:
-  - 🥇 **P1: Go**: Primary | **Gin** | **sqlc** | `mage` | `Context` | Channel Only | Nil check
+  - 🥇 **P1: Go**: Primary | **Gin** | **GORM** (PG) | `mage` | `Context` | Channel Only | Nil check
   - 🥈 **P2: TS**: Web/Scripts | <100 行 | `Zod` | `strict` | **Ban** `any`
   - 🥉 **P3: Python**: Packages > Code | `uv` | `src/` | GPU: 限额
   - 📉 **P4: Rust 2024**: Specialized | `clippy::pedantic` | **Zero** Unsafe/Panic | **Ban** `.clone()`
@@ -41,11 +41,12 @@
 - **Env**: **Secrets** `.env` | **Ban** Plain | `check-env`
 - **Docker**: **Ban** Vol | **Ref** Bind (`./data` `./logs`) | AI Access
 - **VRAM**: 6GB (Shared) | **Ban** Browser HW-Accel
+- **VRAM Monitor**: `task gpu:check` (nvidia-smi) | **Must** Pre-check (Big Task/Compile/Inference)
 - **Port**: Check `/home/j/dockge/PORTS.md`
 - **Net**: `localhost` | `BASE_URL` ENV | `192.168.x.x` restricted
 - **Data**: SQLite (Temp) | Supabase (PG 17.6.1) | **Auth**: `auth.users` (**Ban** Custom PW)
-- **SQL**: Supabase Direct (SQL Editor/Migrations) | **Ban** ORM
-- **Schema**: **Source of Truth**: Supabase / SQL | **Ban** GUI Sync
+- **SQL**: Supabase (PG) | **Go**: GORM
+- **Schema**: **SSOT**: Go Structs | **Dev**: AutoMigrate | **Prod**: DDL Required | **Ban** GUI Sync
 - **Infra**: caddy/redpanda/uptime-kuma/redis (alpine) | `task infra:sync` | CLI 2.70.5
 - **Task**: `taskfile` | 原子化 `db:sync` | REST Client (**Ban** Postman)
 
