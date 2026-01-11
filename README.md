@@ -48,7 +48,7 @@
 - **SQL**: Supabase (PG) | **Go**: GORM
 - **Schema**: **SSOT**: Go Structs | **Dev**: AutoMigrate | **Prod**: DDL Required | **Ban** GUI Sync
 - **Infra**: caddy/redpanda/uptime-kuma/redis (alpine) | `task infra:sync` | CLI 2.70.5
-- **Task**: `taskfile` | 原子化 `db:sync` | REST Client (**Ban** Postman)
+- **Task**: `taskfile` | 原子化 `db:sync` | **API**: Bruno | **Ban** Postman
 
 # 3. Automation
 
@@ -56,6 +56,7 @@
 - **Tasks**: `db:sync` | `db:logs`
 
 # 4. Android (WSL -> Windows)
+
 - **Task**: `task android:run` (`build` -> `cp to Win` -> `adb install`)
 - **Logic**: Windows `adb.exe` | **Ban** Linux native `adb`
 - **Net**: App -> WSL-IP (172.x) | **Ban** `localhost` | Check `ping`
